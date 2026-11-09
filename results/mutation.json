@@ -1,0 +1,383 @@
+{
+ "tools": {
+  "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "python": "3.10.8",
+  "cocotb": "2.1.0"
+ },
+ "wall_seconds": 99.0,
+ "sv_seeds": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "sv_cycles": 5000,
+ "random_seeds": [
+  1,
+  2,
+  3
+ ],
+ "random_cycles": 2000,
+ "directed_tests": [
+  "test_directed_ops",
+  "test_full_throughput",
+  "test_backpressure_freeze",
+  "test_flush_corners",
+  "test_reset_midstream",
+  "test_div_chain"
+ ],
+ "bugs_detected": 9,
+ "bugs_total": 9,
+ "baseline_false_alarms": false,
+ "rows": [
+  {
+   "bug": "none (bug-free RTL)",
+   "description": "baseline",
+   "sv_caught": [],
+   "sv_first_msg": "",
+   "directed_caught": [],
+   "directed_msgs": {},
+   "random_caught": [],
+   "check_types": [],
+   "detected": false
+  },
+  {
+   "bug": "BUG_SKID_DUP",
+   "description": "skid entry not cleared when it moves to main (command duplicated)",
+   "sv_caught": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sv_first_msg": "FATAL: tb/gpu_command_pipeline_tb.sv:105: [50] SCOREBOARD: unexpected output",
+   "directed_caught": [
+    "test_backpressure_freeze",
+    "test_directed_ops",
+    "test_div_chain",
+    "test_flush_corners",
+    "test_reset_midstream"
+   ],
+   "directed_msgs": {
+    "test_directed_ops": "[cycle 1348] SCOREBOARD: unexpected output tag=0xfc with nothing outstanding",
+    "test_backpressure_freeze": "[cycle 93] SCOREBOARD: unexpected output tag=0xd with nothing outstanding",
+    "test_flush_corners": "[cycle 136] SCOREBOARD: unexpected output tag=0x41 with nothing outstanding",
+    "test_reset_midstream": "[cycle 118] SCOREBOARD: unexpected output tag=0x20 with nothing outstanding",
+    "test_div_chain": "[cycle 42] SCOREBOARD: unexpected output tag=0x4 with nothing outstanding"
+   },
+   "random_first_msg": "[cycle 52] SCOREBOARD: unexpected output tag=0xc with nothing outstanding",
+   "random_caught": [
+    1,
+    2,
+    3
+   ],
+   "check_types": [
+    "SCOREBOARD"
+   ],
+   "detected": true
+  },
+  {
+   "bug": "BUG_ROB_NOFULL",
+   "description": "issue ignores ROB-full (overwrites an un-retired slot)",
+   "sv_caught": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sv_first_msg": "FATAL: tb/gpu_command_pipeline_tb.sv:108: [41] SCOREBOARD: op=14 tag 12/0a result 1214/ffff flag 1/1 (got/exp)",
+   "directed_caught": [
+    "test_backpressure_freeze",
+    "test_flush_corners",
+    "test_reset_midstream"
+   ],
+   "directed_msgs": {
+    "test_backpressure_freeze": "accepted 26 commands with nowhere to put them\nassert 26 <= (8 + 3)",
+    "test_flush_corners": "[cycle 131] SCOREBOARD: ADDS expected tag=0x44 result=0x24b2 flag=0 got tag=0x4c result=0x0000 flag=0",
+    "test_reset_midstream": "[cycle 23] SCOREBOARD: MUL expected tag=0x3 result=0x9860 flag=0 got tag=0xb result=0x0001 flag=0"
+   },
+   "random_first_msg": "[cycle 60] SCOREBOARD: DIVU expected tag=0xf result=0x0000 flag=0 got tag=0x17 result=0x0000 flag=0",
+   "random_caught": [
+    1,
+    2,
+    3
+   ],
+   "check_types": [
+    "CAPACITY",
+    "SCOREBOARD"
+   ],
+   "detected": true
+  },
+  {
+   "bug": "BUG_OUT_NOT_HELD",
+   "description": "output register reloads while stalled",
+   "sv_caught": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "sv_first_msg": "FATAL: tb/gpu_command_pipeline_tb.sv:98: [51] PROTOCOL: output changed while stalled",
+   "directed_caught": [
+    "test_backpressure_freeze",
+    "test_div_chain",
+    "test_flush_corners",
+    "test_reset_midstream"
+   ],
+   "directed_msgs": {
+    "test_backpressure_freeze": "[cycle 14] PROTOCOL: payload changed while stalled: (5, 1, 0) -> (6, 71, 0)",
+    "test_flush_corners": "[cycle 73] PROTOCOL: payload changed while stalled: (42, 0, 1) -> (43, 16, 0)",
+    "test_reset_midstream": "[cycle 9] PROTOCOL: payload changed while stalled: (0, 32731, 0) -> (1, 16119, 0)",
+    "test_div_chain": "[cycle 25] PROTOCOL: payload changed while stalled: (1, 14, 0) -> (2, 0, 0)"
+   },
+   "random_first_msg": "[cycle 69] PROTOCOL: payload changed while stalled: (16, 1344, 0) -> (17, 256, 0)",
+   "random_caught": [
+    1,
+    2,
+    3
+   ],
+   "check_types": [
+    "PROTOCOL"
+   ],
+   "detected": true
+  },
+  {
+   "bug": "BUG_ADDS_CARRY",
+   "description": "saturating add uses unsigned carry for overflow",
+   "sv_caught": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sv_first_msg": "FATAL: tb/gpu_command_pipeline_tb.sv:108: [94] SCOREBOARD: op=2 tag 1b/1b result 7fff/4579 flag 1/0 (got/exp)",
+   "directed_caught": [
+    "test_backpressure_freeze",
+    "test_directed_ops",
+    "test_div_chain",
+    "test_flush_corners",
+    "test_full_throughput"
+   ],
+   "directed_msgs": {
+    "test_directed_ops": "[cycle 200] SCOREBOARD: ADDS expected tag=0xc0 result=0x0000 flag=0 got tag=0xc0 result=0x7fff flag=1",
+    "test_full_throughput": "[cycle 30] SCOREBOARD: ADDS expected tag=0x16 result=0xb930 flag=0 got tag=0x16 result=0x8000 flag=1",
+    "test_backpressure_freeze": "[cycle 169] SCOREBOARD: ADDS expected tag=0x1a result=0x7ffd flag=0 got tag=0x1a result=0x8000 flag=1",
+    "test_flush_corners": "[cycle 25] SCOREBOARD: ADDS expected tag=0xc result=0x3ce1 flag=0 got tag=0xc result=0x8000 flag=1",
+    "test_div_chain": "[cycle 96] SCOREBOARD: ADDS expected tag=0xb result=0xffef flag=0 got tag=0xb result=0x8000 flag=1"
+   },
+   "random_first_msg": "[cycle 513] SCOREBOARD: ADDS expected tag=0x85 result=0xf754 flag=0 got tag=0x85 result=0x8000 flag=1",
+   "random_caught": [
+    1,
+    2,
+    3
+   ],
+   "check_types": [
+    "SCOREBOARD"
+   ],
+   "detected": true
+  },
+  {
+   "bug": "BUG_SRA_LOGICAL",
+   "description": "SRA implemented as logical shift",
+   "sv_caught": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sv_first_msg": "FATAL: tb/gpu_command_pipeline_tb.sv:108: [9] SCOREBOARD: op=7 tag 01/01 result 007c/fffc flag 0/0 (got/exp)",
+   "directed_caught": [
+    "test_backpressure_freeze",
+    "test_directed_ops",
+    "test_flush_corners",
+    "test_full_throughput",
+    "test_reset_midstream"
+   ],
+   "directed_msgs": {
+    "test_directed_ops": "[cycle 674] SCOREBOARD: SRA expected tag=0x9a result=0xe000 flag=0 got tag=0x9a result=0x2000 flag=0",
+    "test_full_throughput": "[cycle 14] SCOREBOARD: SRA expected tag=0x6 result=0xffff flag=0 got tag=0x6 result=0x0001 flag=0",
+    "test_backpressure_freeze": "[cycle 165] SCOREBOARD: SRA expected tag=0x18 result=0xffff flag=0 got tag=0x18 result=0x00ff flag=0",
+    "test_flush_corners": "[cycle 127] SCOREBOARD: SRA expected tag=0x3d result=0xffff flag=0 got tag=0x3d result=0x0001 flag=0",
+    "test_reset_midstream": "[cycle 49] SCOREBOARD: SRA expected tag=0x1b result=0xffff flag=0 got tag=0x1b result=0x07ff flag=0"
+   },
+   "random_first_msg": "[cycle 8] SCOREBOARD: SRA expected tag=0x0 result=0xffff flag=0 got tag=0x0 result=0x0003 flag=0",
+   "random_caught": [
+    1,
+    2,
+    3
+   ],
+   "check_types": [
+    "SCOREBOARD"
+   ],
+   "detected": true
+  },
+  {
+   "bug": "BUG_DIV_SHORT",
+   "description": "divider runs 15 iterations instead of 16",
+   "sv_caught": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sv_first_msg": "FATAL: tb/gpu_command_pipeline_tb.sv:108: [87] SCOREBOARD: op=14 tag 20/20 result 8000/0000 flag 0/0 (got/exp)",
+   "directed_caught": [
+    "test_backpressure_freeze",
+    "test_directed_ops",
+    "test_div_chain",
+    "test_flush_corners",
+    "test_reset_midstream"
+   ],
+   "directed_msgs": {
+    "test_directed_ops": "[cycle 1424] SCOREBOARD: DIVU expected tag=0x2 result=0x0000 flag=0 got tag=0x2 result=0x8000 flag=0",
+    "test_backpressure_freeze": "[cycle 94] SCOREBOARD: DIVU expected tag=0xb result=0x0080 flag=0 got tag=0xb result=0x0040 flag=0",
+    "test_flush_corners": "[cycle 132] SCOREBOARD: REMU expected tag=0x40 result=0x0005 flag=0 got tag=0x40 result=0x0007 flag=0",
+    "test_reset_midstream": "[cycle 69] SCOREBOARD: DIVU expected tag=0x25 result=0x0101 flag=0 got tag=0x25 result=0x8080 flag=0",
+    "test_div_chain": "[cycle 23] SCOREBOARD: REMU expected tag=0x0 result=0x000f flag=0 got tag=0x0 result=0x0007 flag=0"
+   },
+   "random_first_msg": "[cycle 64] SCOREBOARD: REMU expected tag=0xe result=0x0943 flag=0 got tag=0xe result=0x04a1 flag=0",
+   "random_caught": [
+    1,
+    2,
+    3
+   ],
+   "check_types": [
+    "SCOREBOARD"
+   ],
+   "detected": true
+  },
+  {
+   "bug": "BUG_FLUSH_DIV",
+   "description": "flush does not cancel an in-flight divide",
+   "sv_caught": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8
+   ],
+   "sv_first_msg": "FATAL: tb/gpu_command_pipeline_tb.sv:108: [1483] SCOREBOARD: op=13 tag d3/d3 result ffff/f1d0 flag 1/0 (got/exp)",
+   "directed_caught": [
+    "test_flush_corners"
+   ],
+   "directed_msgs": {
+    "test_flush_corners": "[cycle 23] SCOREBOARD: AND expected tag=0xa result=0x2408 flag=0 got tag=0xa result=0x5555 flag=0"
+   },
+   "random_first_msg": "[cycle 1594] SCOREBOARD: REMU expected tag=0xbe result=0x64fd flag=0 got tag=0xbe result=0x0000 flag=0",
+   "random_caught": [
+    1,
+    2
+   ],
+   "check_types": [
+    "SCOREBOARD"
+   ],
+   "detected": true
+  },
+  {
+   "bug": "BUG_MINMAX_UNSIGNED",
+   "description": "MIN/MAX compare unsigned",
+   "sv_caught": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sv_first_msg": "FATAL: tb/gpu_command_pipeline_tb.sv:108: [95] SCOREBOARD: op=8 tag 1c/1c result 0000/ffff flag 0/0 (got/exp)",
+   "directed_caught": [
+    "test_backpressure_freeze",
+    "test_directed_ops",
+    "test_div_chain",
+    "test_flush_corners",
+    "test_full_throughput",
+    "test_reset_midstream"
+   ],
+   "directed_msgs": {
+    "test_directed_ops": "[cycle 738] SCOREBOARD: MIN expected tag=0xda result=0x8000 flag=0 got tag=0xda result=0x0000 flag=0",
+    "test_full_throughput": "[cycle 18] SCOREBOARD: MAX expected tag=0xa result=0x0001 flag=0 got tag=0xa result=0xfff1 flag=0",
+    "test_backpressure_freeze": "[cycle 79] SCOREBOARD: MAX expected tag=0x7 result=0x0009 flag=0 got tag=0x7 result=0x8a20 flag=0",
+    "test_flush_corners": "[cycle 38] SCOREBOARD: MAX expected tag=0x19 result=0x115c flag=0 got tag=0x19 result=0xfff8 flag=0",
+    "test_reset_midstream": "[cycle 20] SCOREBOARD: MIN expected tag=0x6 result=0xbb7c flag=0 got tag=0x6 result=0x0000 flag=0",
+    "test_div_chain": "[cycle 161] SCOREBOARD: MAX expected tag=0x15 result=0x3109 flag=0 got tag=0x15 result=0xd99a flag=0"
+   },
+   "random_first_msg": "[cycle 12] SCOREBOARD: MIN expected tag=0x4 result=0xfff3 flag=0 got tag=0x4 result=0x0001 flag=0",
+   "random_caught": [
+    1,
+    2,
+    3
+   ],
+   "check_types": [
+    "SCOREBOARD"
+   ],
+   "detected": true
+  },
+  {
+   "bug": "BUG_MAC_FLAG",
+   "description": "MAC overflow flag ignores carry out of the add",
+   "sv_caught": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "sv_first_msg": "FATAL: tb/gpu_command_pipeline_tb.sv:108: [274] SCOREBOARD: op=4 tag 7f/7f result 7ffe/7ffe flag 0/1 (got/exp)",
+   "directed_caught": [
+    "test_directed_ops",
+    "test_div_chain",
+    "test_flush_corners",
+    "test_full_throughput"
+   ],
+   "directed_msgs": {
+    "test_directed_ops": "[cycle 381] SCOREBOARD: MAC expected tag=0x75 result=0x25a4 flag=1 got tag=0x75 result=0x25a4 flag=0",
+    "test_full_throughput": "[cycle 130] SCOREBOARD: MAC expected tag=0x7a result=0x6002 flag=1 got tag=0x7a result=0x6002 flag=0",
+    "test_flush_corners": "[cycle 27] SCOREBOARD: MAC expected tag=0xe result=0x195a flag=1 got tag=0xe result=0x195a flag=0",
+    "test_div_chain": "[cycle 179] SCOREBOARD: MAC expected tag=0x18 result=0x649a flag=1 got tag=0x18 result=0x649a flag=0"
+   },
+   "random_first_msg": "[cycle 51] SCOREBOARD: MAC expected tag=0xc result=0x39ae flag=1 got tag=0xc result=0x39ae flag=0",
+   "random_caught": [
+    1,
+    2,
+    3
+   ],
+   "check_types": [
+    "SCOREBOARD"
+   ],
+   "detected": true
+  }
+ ]
+}

@@ -1,0 +1,1172 @@
+{
+ "tools": {
+  "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "python": "3.10.8",
+  "cocotb": "2.1.0"
+ },
+ "all_passed": true,
+ "wall_seconds": 250.2,
+ "commands": {
+  "sv_build": "iverilog -g2012 -s gpu_command_pipeline_tb -o build/sv_sim rtl/gpu_command_pipeline.sv tb/gpu_command_pipeline_tb.sv",
+  "sv_run": "vvp -n build/sv_sim +SEED=<1..20> +CYCLES=20000",
+  "cocotb": "python scripts/regress.py --seeds 50 --sv-seeds 20 --cycles 3000 --sv-cycles 20000"
+ },
+ "sv": {
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "cycles_per_seed": 20000,
+  "totals": {
+   "cycles": 408480,
+   "accepted": 182977,
+   "outputs": 168639,
+   "stalls": 96859,
+   "flushes": 1623,
+   "resets": 162,
+   "ooo": 66249
+  },
+  "runs": [
+   {
+    "seed": 1,
+    "pass": true,
+    "line": "SV_PASS seed=1 mode=1 cycles=20424 accepted=9867 outputs=9131 stalls=3077 flushes=82 resets=6 ooo=3786 | SV_COVERAGE op_bins=32/32 flush_while_div=48 rob_full_stall=6010 skid_full=9590 div_by_zero=97 adds_sat=104",
+    "mode": 1,
+    "cycles": 20424,
+    "accepted": 9867,
+    "outputs": 9131,
+    "stalls": 3077,
+    "flushes": 82,
+    "resets": 6,
+    "ooo": 3786
+   },
+   {
+    "seed": 2,
+    "pass": true,
+    "line": "SV_PASS seed=2 mode=2 cycles=20424 accepted=8458 outputs=7619 stalls=7649 flushes=91 resets=10 ooo=3123 | SV_COVERAGE op_bins=32/32 flush_while_div=55 rob_full_stall=8211 skid_full=11076 div_by_zero=83 adds_sat=86",
+    "mode": 2,
+    "cycles": 20424,
+    "accepted": 8458,
+    "outputs": 7619,
+    "stalls": 7649,
+    "flushes": 91,
+    "resets": 10,
+    "ooo": 3123
+   },
+   {
+    "seed": 3,
+    "pass": true,
+    "line": "SV_PASS seed=3 mode=3 cycles=20424 accepted=7394 outputs=6708 stalls=8756 flushes=72 resets=7 ooo=2492 | SV_COVERAGE op_bins=32/32 flush_while_div=36 rob_full_stall=9307 skid_full=12077 div_by_zero=72 adds_sat=77",
+    "mode": 3,
+    "cycles": 20424,
+    "accepted": 7394,
+    "outputs": 6708,
+    "stalls": 8756,
+    "flushes": 72,
+    "resets": 7,
+    "ooo": 2492
+   },
+   {
+    "seed": 4,
+    "pass": true,
+    "line": "SV_PASS seed=4 mode=0 cycles=20424 accepted=10726 outputs=10149 stalls=0 flushes=72 resets=6 ooo=3930 | SV_COVERAGE op_bins=32/32 flush_while_div=48 rob_full_stall=4517 skid_full=8532 div_by_zero=96 adds_sat=109",
+    "mode": 0,
+    "cycles": 20424,
+    "accepted": 10726,
+    "outputs": 10149,
+    "stalls": 0,
+    "flushes": 72,
+    "resets": 6,
+    "ooo": 3930
+   },
+   {
+    "seed": 5,
+    "pass": true,
+    "line": "SV_PASS seed=5 mode=1 cycles=20424 accepted=9745 outputs=9024 stalls=2973 flushes=85 resets=6 ooo=3677 | SV_COVERAGE op_bins=32/32 flush_while_div=40 rob_full_stall=5794 skid_full=9707 div_by_zero=91 adds_sat=99",
+    "mode": 1,
+    "cycles": 20424,
+    "accepted": 9745,
+    "outputs": 9024,
+    "stalls": 2973,
+    "flushes": 85,
+    "resets": 6,
+    "ooo": 3677
+   },
+   {
+    "seed": 6,
+    "pass": true,
+    "line": "SV_PASS seed=6 mode=2 cycles=20424 accepted=8612 outputs=7796 stalls=7646 flushes=91 resets=8 ooo=3112 | SV_COVERAGE op_bins=32/32 flush_while_div=59 rob_full_stall=8202 skid_full=10970 div_by_zero=81 adds_sat=87",
+    "mode": 2,
+    "cycles": 20424,
+    "accepted": 8612,
+    "outputs": 7796,
+    "stalls": 7646,
+    "flushes": 91,
+    "resets": 8,
+    "ooo": 3112
+   },
+   {
+    "seed": 7,
+    "pass": true,
+    "line": "SV_PASS seed=7 mode=3 cycles=20424 accepted=7639 outputs=6973 stalls=8554 flushes=74 resets=5 ooo=2474 | SV_COVERAGE op_bins=32/32 flush_while_div=35 rob_full_stall=9404 skid_full=11863 div_by_zero=74 adds_sat=73",
+    "mode": 3,
+    "cycles": 20424,
+    "accepted": 7639,
+    "outputs": 6973,
+    "stalls": 8554,
+    "flushes": 74,
+    "resets": 5,
+    "ooo": 2474
+   },
+   {
+    "seed": 8,
+    "pass": true,
+    "line": "SV_PASS seed=8 mode=0 cycles=20424 accepted=10723 outputs=10119 stalls=0 flushes=79 resets=7 ooo=3879 | SV_COVERAGE op_bins=32/32 flush_while_div=59 rob_full_stall=4366 skid_full=8542 div_by_zero=111 adds_sat=88",
+    "mode": 0,
+    "cycles": 20424,
+    "accepted": 10723,
+    "outputs": 10119,
+    "stalls": 0,
+    "flushes": 79,
+    "resets": 7,
+    "ooo": 3879
+   },
+   {
+    "seed": 9,
+    "pass": true,
+    "line": "SV_PASS seed=9 mode=1 cycles=20424 accepted=10079 outputs=9122 stalls=3124 flushes=107 resets=12 ooo=3660 | SV_COVERAGE op_bins=32/32 flush_while_div=68 rob_full_stall=5855 skid_full=9253 div_by_zero=91 adds_sat=92",
+    "mode": 1,
+    "cycles": 20424,
+    "accepted": 10079,
+    "outputs": 9122,
+    "stalls": 3124,
+    "flushes": 107,
+    "resets": 12,
+    "ooo": 3660
+   },
+   {
+    "seed": 10,
+    "pass": true,
+    "line": "SV_PASS seed=10 mode=2 cycles=20424 accepted=8477 outputs=7783 stalls=7914 flushes=73 resets=6 ooo=2905 | SV_COVERAGE op_bins=32/32 flush_while_div=38 rob_full_stall=8340 skid_full=11121 div_by_zero=82 adds_sat=85",
+    "mode": 2,
+    "cycles": 20424,
+    "accepted": 8477,
+    "outputs": 7783,
+    "stalls": 7914,
+    "flushes": 73,
+    "resets": 6,
+    "ooo": 2905
+   },
+   {
+    "seed": 11,
+    "pass": true,
+    "line": "SV_PASS seed=11 mode=3 cycles=20424 accepted=7646 outputs=6661 stalls=8565 flushes=99 resets=10 ooo=2524 | SV_COVERAGE op_bins=32/32 flush_while_div=42 rob_full_stall=9447 skid_full=11837 div_by_zero=75 adds_sat=67",
+    "mode": 3,
+    "cycles": 20424,
+    "accepted": 7646,
+    "outputs": 6661,
+    "stalls": 8565,
+    "flushes": 99,
+    "resets": 10,
+    "ooo": 2524
+   },
+   {
+    "seed": 12,
+    "pass": true,
+    "line": "SV_PASS seed=12 mode=0 cycles=20424 accepted=10958 outputs=10277 stalls=0 flushes=83 resets=10 ooo=4011 | SV_COVERAGE op_bins=32/32 flush_while_div=52 rob_full_stall=4586 skid_full=8257 div_by_zero=108 adds_sat=103",
+    "mode": 0,
+    "cycles": 20424,
+    "accepted": 10958,
+    "outputs": 10277,
+    "stalls": 0,
+    "flushes": 83,
+    "resets": 10,
+    "ooo": 4011
+   },
+   {
+    "seed": 13,
+    "pass": true,
+    "line": "SV_PASS seed=13 mode=1 cycles=20424 accepted=9880 outputs=9100 stalls=3037 flushes=91 resets=8 ooo=3689 | SV_COVERAGE op_bins=32/32 flush_while_div=62 rob_full_stall=5824 skid_full=9507 div_by_zero=95 adds_sat=94",
+    "mode": 1,
+    "cycles": 20424,
+    "accepted": 9880,
+    "outputs": 9100,
+    "stalls": 3037,
+    "flushes": 91,
+    "resets": 8,
+    "ooo": 3689
+   },
+   {
+    "seed": 14,
+    "pass": true,
+    "line": "SV_PASS seed=14 mode=2 cycles=20424 accepted=8527 outputs=7925 stalls=7887 flushes=63 resets=7 ooo=3137 | SV_COVERAGE op_bins=32/32 flush_while_div=34 rob_full_stall=8448 skid_full=11076 div_by_zero=65 adds_sat=90",
+    "mode": 2,
+    "cycles": 20424,
+    "accepted": 8527,
+    "outputs": 7925,
+    "stalls": 7887,
+    "flushes": 63,
+    "resets": 7,
+    "ooo": 3137
+   },
+   {
+    "seed": 15,
+    "pass": true,
+    "line": "SV_PASS seed=15 mode=3 cycles=20424 accepted=7641 outputs=6963 stalls=8016 flushes=74 resets=7 ooo=2642 | SV_COVERAGE op_bins=32/32 flush_while_div=35 rob_full_stall=8957 skid_full=11850 div_by_zero=71 adds_sat=101",
+    "mode": 3,
+    "cycles": 20424,
+    "accepted": 7641,
+    "outputs": 6963,
+    "stalls": 8016,
+    "flushes": 74,
+    "resets": 7,
+    "ooo": 2642
+   },
+   {
+    "seed": 16,
+    "pass": true,
+    "line": "SV_PASS seed=16 mode=0 cycles=20424 accepted=10376 outputs=9759 stalls=0 flushes=79 resets=9 ooo=3941 | SV_COVERAGE op_bins=32/32 flush_while_div=51 rob_full_stall=4459 skid_full=8910 div_by_zero=126 adds_sat=131",
+    "mode": 0,
+    "cycles": 20424,
+    "accepted": 10376,
+    "outputs": 9759,
+    "stalls": 0,
+    "flushes": 79,
+    "resets": 9,
+    "ooo": 3941
+   },
+   {
+    "seed": 17,
+    "pass": true,
+    "line": "SV_PASS seed=17 mode=1 cycles=20424 accepted=9801 outputs=9007 stalls=3026 flushes=86 resets=13 ooo=3685 | SV_COVERAGE op_bins=32/32 flush_while_div=61 rob_full_stall=5689 skid_full=9624 div_by_zero=82 adds_sat=102",
+    "mode": 1,
+    "cycles": 20424,
+    "accepted": 9801,
+    "outputs": 9007,
+    "stalls": 3026,
+    "flushes": 86,
+    "resets": 13,
+    "ooo": 3685
+   },
+   {
+    "seed": 18,
+    "pass": true,
+    "line": "SV_PASS seed=18 mode=2 cycles=20424 accepted=8557 outputs=7931 stalls=7956 flushes=65 resets=10 ooo=3079 | SV_COVERAGE op_bins=32/32 flush_while_div=39 rob_full_stall=8588 skid_full=11031 div_by_zero=79 adds_sat=85",
+    "mode": 2,
+    "cycles": 20424,
+    "accepted": 8557,
+    "outputs": 7931,
+    "stalls": 7956,
+    "flushes": 65,
+    "resets": 10,
+    "ooo": 3079
+   },
+   {
+    "seed": 19,
+    "pass": true,
+    "line": "SV_PASS seed=19 mode=3 cycles=20424 accepted=7286 outputs=6592 stalls=8679 flushes=77 resets=7 ooo=2543 | SV_COVERAGE op_bins=32/32 flush_while_div=39 rob_full_stall=9833 skid_full=12198 div_by_zero=61 adds_sat=66",
+    "mode": 3,
+    "cycles": 20424,
+    "accepted": 7286,
+    "outputs": 6592,
+    "stalls": 8679,
+    "flushes": 77,
+    "resets": 7,
+    "ooo": 2543
+   },
+   {
+    "seed": 20,
+    "pass": true,
+    "line": "SV_PASS seed=20 mode=0 cycles=20424 accepted=10585 outputs=10000 stalls=0 flushes=80 resets=8 ooo=3960 | SV_COVERAGE op_bins=32/32 flush_while_div=55 rob_full_stall=4417 skid_full=8661 div_by_zero=93 adds_sat=118",
+    "mode": 0,
+    "cycles": 20424,
+    "accepted": 10585,
+    "outputs": 10000,
+    "stalls": 0,
+    "flushes": 80,
+    "resets": 8,
+    "ooo": 3960
+   }
+  ]
+ },
+ "cocotb": {
+  "directed_tests": [
+   "test_directed_ops",
+   "test_full_throughput",
+   "test_backpressure_freeze",
+   "test_flush_corners",
+   "test_reset_midstream",
+   "test_div_chain"
+  ],
+  "random_seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50
+  ],
+  "random_cycles_per_seed": 3000,
+  "totals": {
+   "accepted": 64390,
+   "cycles": 157475,
+   "dropped_by_kill": 5330,
+   "flushes": 565,
+   "ooo_completions": 17827,
+   "outputs": 59060,
+   "resets": 337,
+   "stall_cycles": 41264
+  },
+  "runs": [
+   {
+    "name": "directed",
+    "tests": 6,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed1",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed2",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed3",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed4",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed5",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed6",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed7",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed8",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed9",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed10",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed11",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed12",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed13",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed14",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed15",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed16",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed17",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed18",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed19",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed20",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed21",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed22",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed23",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed24",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed25",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed26",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed27",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed28",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed29",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed30",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed31",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed32",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed33",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed34",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed35",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed36",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed37",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed38",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed39",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed40",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed41",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed42",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed43",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed44",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed45",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed46",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed47",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed48",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed49",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   },
+   {
+    "name": "seed50",
+    "tests": 1,
+    "failed": 0,
+    "failures": {}
+   }
+  ]
+ },
+ "coverage": {
+  "bins_total": 174,
+  "bins_hit": 174,
+  "closed_after": "seed4",
+  "random_only_bins_hit": 174,
+  "groups": {
+   "kill": {
+    "hit": 6,
+    "total": 6,
+    "min_hits": 3
+   },
+   "op:accepted": {
+    "hit": 16,
+    "total": 16,
+    "min_hits": 2312
+   },
+   "op:back_to_back": {
+    "hit": 16,
+    "total": 16,
+    "min_hits": 1407
+   },
+   "op:flushed_in_flight": {
+    "hit": 16,
+    "total": 16,
+    "min_hits": 304
+   },
+   "op:stalled_at_output": {
+    "hit": 16,
+    "total": 16,
+    "min_hits": 2008
+   },
+   "opxready": {
+    "hit": 80,
+    "total": 80,
+    "min_hits": 304
+   },
+   "uarch": {
+    "hit": 8,
+    "total": 8,
+    "min_hits": 174
+   },
+   "val": {
+    "hit": 16,
+    "total": 16,
+    "min_hits": 222
+   }
+  },
+  "closure_curve": [
+   {
+    "after": "directed",
+    "bins_hit": 107,
+    "bins_total": 174
+   },
+   {
+    "after": "seed1",
+    "bins_hit": 125,
+    "bins_total": 174
+   },
+   {
+    "after": "seed2",
+    "bins_hit": 142,
+    "bins_total": 174
+   },
+   {
+    "after": "seed3",
+    "bins_hit": 158,
+    "bins_total": 174
+   },
+   {
+    "after": "seed4",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed5",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed6",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed7",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed8",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed9",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed10",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed11",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed12",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed13",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed14",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed15",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed16",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed17",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed18",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed19",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed20",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed21",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed22",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed23",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed24",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed25",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed26",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed27",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed28",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed29",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed30",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed31",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed32",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed33",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed34",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed35",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed36",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed37",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed38",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed39",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed40",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed41",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed42",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed43",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed44",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed45",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed46",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed47",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed48",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed49",
+    "bins_hit": 174,
+    "bins_total": 174
+   },
+   {
+    "after": "seed50",
+    "bins_hit": 174,
+    "bins_total": 174
+   }
+  ],
+  "bins": {
+   "kill:flush_2_cycles_in_a_row": 3,
+   "kill:flush_while_div_busy": 270,
+   "kill:flush_while_output_stalled": 138,
+   "kill:flush_while_rob_full": 140,
+   "kill:flush_while_skid_full": 228,
+   "kill:reset_with_inflight": 165,
+   "op:ADD:accepted": 4166,
+   "op:ADD:back_to_back": 2551,
+   "op:ADD:flushed_in_flight": 344,
+   "op:ADD:stalled_at_output": 2753,
+   "op:ADDS:accepted": 4429,
+   "op:ADDS:back_to_back": 2683,
+   "op:ADDS:flushed_in_flight": 368,
+   "op:ADDS:stalled_at_output": 2896,
+   "op:AND:accepted": 4335,
+   "op:AND:back_to_back": 2656,
+   "op:AND:flushed_in_flight": 341,
+   "op:AND:stalled_at_output": 2822,
+   "op:CMPLT:accepted": 4204,
+   "op:CMPLT:back_to_back": 2560,
+   "op:CMPLT:flushed_in_flight": 308,
+   "op:CMPLT:stalled_at_output": 2414,
+   "op:DIVU:accepted": 2312,
+   "op:DIVU:back_to_back": 1407,
+   "op:DIVU:flushed_in_flight": 304,
+   "op:DIVU:stalled_at_output": 2008,
+   "op:MAC:accepted": 4217,
+   "op:MAC:back_to_back": 2574,
+   "op:MAC:flushed_in_flight": 305,
+   "op:MAC:stalled_at_output": 2623,
+   "op:MAX:accepted": 4320,
+   "op:MAX:back_to_back": 2611,
+   "op:MAX:flushed_in_flight": 328,
+   "op:MAX:stalled_at_output": 2697,
+   "op:MIN:accepted": 4286,
+   "op:MIN:back_to_back": 2597,
+   "op:MIN:flushed_in_flight": 370,
+   "op:MIN:stalled_at_output": 2850,
+   "op:MUL:accepted": 4214,
+   "op:MUL:back_to_back": 2549,
+   "op:MUL:flushed_in_flight": 334,
+   "op:MUL:stalled_at_output": 2700,
+   "op:OR:accepted": 4266,
+   "op:OR:back_to_back": 2648,
+   "op:OR:flushed_in_flight": 355,
+   "op:OR:stalled_at_output": 2640,
+   "op:REMU:accepted": 2439,
+   "op:REMU:back_to_back": 1413,
+   "op:REMU:flushed_in_flight": 319,
+   "op:REMU:stalled_at_output": 2117,
+   "op:SHL:accepted": 4308,
+   "op:SHL:back_to_back": 2610,
+   "op:SHL:flushed_in_flight": 359,
+   "op:SHL:stalled_at_output": 2546,
+   "op:SHR:accepted": 4301,
+   "op:SHR:back_to_back": 2619,
+   "op:SHR:flushed_in_flight": 322,
+   "op:SHR:stalled_at_output": 2602,
+   "op:SRA:accepted": 4234,
+   "op:SRA:back_to_back": 2633,
+   "op:SRA:flushed_in_flight": 345,
+   "op:SRA:stalled_at_output": 2739,
+   "op:SUB:accepted": 4210,
+   "op:SUB:back_to_back": 2588,
+   "op:SUB:flushed_in_flight": 311,
+   "op:SUB:stalled_at_output": 2472,
+   "op:XOR:accepted": 4149,
+   "op:XOR:back_to_back": 2577,
+   "op:XOR:flushed_in_flight": 317,
+   "op:XOR:stalled_at_output": 2385,
+   "opxready:ADD:always": 1048,
+   "opxready:ADD:bursty": 698,
+   "opxready:ADD:p25": 548,
+   "opxready:ADD:p50": 929,
+   "opxready:ADD:p90": 943,
+   "opxready:ADDS:always": 1094,
+   "opxready:ADDS:bursty": 849,
+   "opxready:ADDS:p25": 574,
+   "opxready:ADDS:p50": 927,
+   "opxready:ADDS:p90": 985,
+   "opxready:AND:always": 1104,
+   "opxready:AND:bursty": 754,
+   "opxready:AND:p25": 571,
+   "opxready:AND:p50": 963,
+   "opxready:AND:p90": 943,
+   "opxready:CMPLT:always": 1081,
+   "opxready:CMPLT:bursty": 753,
+   "opxready:CMPLT:p25": 534,
+   "opxready:CMPLT:p50": 860,
+   "opxready:CMPLT:p90": 976,
+   "opxready:DIVU:always": 638,
+   "opxready:DIVU:bursty": 533,
+   "opxready:DIVU:p25": 304,
+   "opxready:DIVU:p50": 323,
+   "opxready:DIVU:p90": 514,
+   "opxready:MAC:always": 1069,
+   "opxready:MAC:bursty": 782,
+   "opxready:MAC:p25": 547,
+   "opxready:MAC:p50": 839,
+   "opxready:MAC:p90": 980,
+   "opxready:MAX:always": 1133,
+   "opxready:MAX:bursty": 765,
+   "opxready:MAX:p25": 544,
+   "opxready:MAX:p50": 954,
+   "opxready:MAX:p90": 924,
+   "opxready:MIN:always": 1045,
+   "opxready:MIN:bursty": 769,
+   "opxready:MIN:p25": 575,
+   "opxready:MIN:p50": 948,
+   "opxready:MIN:p90": 949,
+   "opxready:MUL:always": 1052,
+   "opxready:MUL:bursty": 763,
+   "opxready:MUL:p25": 547,
+   "opxready:MUL:p50": 929,
+   "opxready:MUL:p90": 923,
+   "opxready:OR:always": 1078,
+   "opxready:OR:bursty": 719,
+   "opxready:OR:p25": 562,
+   "opxready:OR:p50": 888,
+   "opxready:OR:p90": 1019,
+   "opxready:REMU:always": 639,
+   "opxready:REMU:bursty": 544,
+   "opxready:REMU:p25": 355,
+   "opxready:REMU:p50": 340,
+   "opxready:REMU:p90": 561,
+   "opxready:SHL:always": 1153,
+   "opxready:SHL:bursty": 746,
+   "opxready:SHL:p25": 533,
+   "opxready:SHL:p50": 906,
+   "opxready:SHL:p90": 970,
+   "opxready:SHR:always": 1104,
+   "opxready:SHR:bursty": 759,
+   "opxready:SHR:p25": 577,
+   "opxready:SHR:p50": 912,
+   "opxready:SHR:p90": 949,
+   "opxready:SRA:always": 1098,
+   "opxready:SRA:bursty": 736,
+   "opxready:SRA:p25": 555,
+   "opxready:SRA:p50": 885,
+   "opxready:SRA:p90": 960,
+   "opxready:SUB:always": 1139,
+   "opxready:SUB:bursty": 752,
+   "opxready:SUB:p25": 468,
+   "opxready:SUB:p50": 882,
+   "opxready:SUB:p90": 969,
+   "opxready:XOR:always": 1079,
+   "opxready:XOR:bursty": 734,
+   "opxready:XOR:p25": 497,
+   "opxready:XOR:p50": 865,
+   "opxready:XOR:p90": 974,
+   "uarch:accept_8_back_to_back": 1240,
+   "uarch:div_busy_stall": 31078,
+   "uarch:div_issue_on_writeback": 2279,
+   "uarch:ooo_completion": 17827,
+   "uarch:output_stall_8plus": 1061,
+   "uarch:rob_full_stall": 41413,
+   "uarch:simultaneous_writeback": 174,
+   "uarch:skid_full": 68321,
+   "val:add_carry": 1653,
+   "val:adds_sat_neg": 321,
+   "val:adds_sat_pos": 222,
+   "val:cmplt_false": 2149,
+   "val:cmplt_true": 2055,
+   "val:div_a_lt_b": 2094,
+   "val:divu_by_zero": 311,
+   "val:mac_ovf_from_add_only": 1242,
+   "val:mac_ovf_from_product": 2072,
+   "val:minmax_mixed_sign": 4177,
+   "val:mul_overflow": 2100,
+   "val:remu_by_zero": 305,
+   "val:shift_by_0": 3018,
+   "val:shift_by_15": 3002,
+   "val:sra_negative": 1462,
+   "val:sub_borrow": 2084
+  }
+ }
+}
