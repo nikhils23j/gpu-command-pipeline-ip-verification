@@ -104,8 +104,6 @@ Why each piece is there:
 - **ROB slots as credits:** backpressure exists at only two points, issue and the output register, which made the design much easier to reason about.
 - **One divider:** only one divide can be in flight. A new divide can issue in the same cycle the old one writes back, so each divide occupies the divider for 17 cycles.
 
-More of the reasoning, and the trade-offs, is in [INTERVIEW_NOTES.md](INTERVIEW_NOTES.md).
-
 ## Results
 
 Icarus Verilog 13.0, cocotb 2.1.0, Python 3.10.8, M2 Mac. The charts are drawn by [`scripts/make_figures.py`](scripts/make_figures.py) straight from the JSON in `results/`.
@@ -233,7 +231,6 @@ make clean
 │   └── make_figures.py              # results/*.json -> docs/img/*.png
 ├── results/                         # raw JSON + generated markdown tables
 ├── docs/img/                        # charts used in this README
-├── INTERVIEW_NOTES.md
 └── Makefile
 ```
 
@@ -246,10 +243,6 @@ make clean
 - **The mutation set is 9 bugs I wrote by hand**, not a systematic mutation tool.
 - **Throughput numbers are single runs per configuration**, with no confidence intervals.
 
-## Interview notes
-
-The design decisions, a 2-minute walkthrough and likely follow-up questions are in [INTERVIEW_NOTES.md](INTERVIEW_NOTES.md).
-
 ---
 
-Built with AI pair-programming help. The numbers are whatever the scripts in this repo printed.
+The numbers above come from the scripts in this repo.
